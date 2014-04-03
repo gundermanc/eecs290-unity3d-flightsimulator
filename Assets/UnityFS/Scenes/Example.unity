@@ -554,7 +554,7 @@ MonoBehaviour:
   WingTipSweep: -.0500000007
   WingTipAngle: 0
   CDOverride: .0450000018
-  WingArea: 2.56686282
+  WingArea: 2.5668633
   AngleOfAttack: 0
 --- !u!114 &66916526
 MonoBehaviour:
@@ -1107,6 +1107,82 @@ MeshFilter:
   m_PrefabInternal: {fileID: 1401295412}
   m_GameObject: {fileID: 114792520}
   m_Mesh: {fileID: 4300170, guid: c9ef439fff1046f4e98fbe8483d39af6, type: 3}
+--- !u!1 &128756658
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 128756662}
+  - 114: {fileID: 128756661}
+  - 154: {fileID: 128756660}
+  - 114: {fileID: 128756659}
+  m_Layer: 0
+  m_Name: Terrain
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 4294967295
+  m_IsActive: 1
+--- !u!114 &128756659
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 128756658}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d28f8d0fd1e160b479e20b119de680e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!154 &128756660
+TerrainCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 128756658}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_TerrainData: {fileID: 15600000, guid: 9082acc6fe35a5440880f1847bcd4b76, type: 2}
+  m_CreateTreeColliders: 1
+--- !u!114 &128756661
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 128756658}
+  m_Enabled: 1
+  m_EditorHideFlags: 1
+  m_Script: {fileID: 12000, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TerrainData: {fileID: 15600000, guid: 9082acc6fe35a5440880f1847bcd4b76, type: 2}
+  m_TreeDistance: 2000
+  m_TreeBillboardDistance: 50
+  m_TreeCrossFadeLength: 5
+  m_TreeMaximumFullLODCount: 50
+  m_DetailObjectDistance: 80
+  m_DetailObjectDensity: 1
+  m_HeightmapPixelError: 5
+  m_SplatMapDistance: 1000
+  m_HeightmapMaximumLOD: 0
+  m_CastShadows: 1
+  m_LightmapIndex: -1
+  m_LightmapSize: 1024
+  m_DrawTreesAndFoliage: 1
+  m_MaterialTemplate: {fileID: 0}
+--- !u!4 &128756662
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 128756658}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
 --- !u!1 &138968889
 GameObject:
   m_ObjectHideFlags: 0
@@ -1419,7 +1495,7 @@ MonoBehaviour:
   WingTipSweep: .360000014
   WingTipAngle: 0
   CDOverride: .0450000018
-  WingArea: 7.03489351
+  WingArea: 7.03489685
   AngleOfAttack: 0
 --- !u!114 &178976945
 MonoBehaviour:
@@ -2754,7 +2830,7 @@ MonoBehaviour:
   WingTipSweep: -.0900000036
   WingTipAngle: 0
   CDOverride: .0450000018
-  WingArea: 2.22361398
+  WingArea: 2.22361422
   AngleOfAttack: 0
 --- !u!114 &390866651
 MonoBehaviour:
@@ -3260,7 +3336,7 @@ MonoBehaviour:
   WingTipSweep: -.0900000036
   WingTipAngle: 0
   CDOverride: .0450000018
-  WingArea: 2.22361398
+  WingArea: 2.22361422
   AngleOfAttack: 0
 --- !u!114 &479501344
 MonoBehaviour:
@@ -3347,6 +3423,7 @@ GameObject:
   - 54: {fileID: 481670626}
   - 114: {fileID: 481670627}
   - 114: {fileID: 481670628}
+  - 114: {fileID: 481670629}
   m_Layer: 0
   m_Name: Example
   m_TagString: Untagged
@@ -3361,7 +3438,7 @@ Transform:
   m_PrefabInternal: {fileID: 1401295412}
   m_GameObject: {fileID: 481670623}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -10.8894863, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 982464069}
@@ -3460,6 +3537,18 @@ MonoBehaviour:
     ReflectedFieldVector2Axis: 0
     ReflectedFieldVector3Axis: 0
     ReflectedFieldName: 
+--- !u!114 &481670629
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 481670623}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 754a85212de3d794e95600abf02a2c2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: 100000, guid: 39df85023318d694c998d8134e152152, type: 2}
 --- !u!1 &481957517
 GameObject:
   m_ObjectHideFlags: 0
@@ -4380,7 +4469,7 @@ MonoBehaviour:
   WingTipSweep: -.0500000007
   WingTipAngle: 0
   CDOverride: .0450000018
-  WingArea: 2.56686282
+  WingArea: 2.5668633
   AngleOfAttack: 0
 --- !u!114 &659079775
 MonoBehaviour:
@@ -8782,7 +8871,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400080, guid: 39f341f341de4f84ebc8cac7b14c4ecb, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -10.8894863
       objectReference: {fileID: 0}
     - target: {fileID: 400080, guid: 39f341f341de4f84ebc8cac7b14c4ecb, type: 2}
       propertyPath: m_LocalPosition.y
