@@ -23,7 +23,7 @@ public class WeaponScript : MonoBehaviour {
 
 	public void Fire() {
 		GameObject bullet = (GameObject)MonoBehaviour.Instantiate(bulletPrefab, this.transform.position 
-		                                                          + new Vector3(0f, 1, 5f), this.transform.localRotation);
+		                                                          + gameObject.transform.up + 5*gameObject.transform.forward, this.transform.localRotation);
 		bullet.rigidbody.velocity = this.transform.forward * 100;
 	}
 }
