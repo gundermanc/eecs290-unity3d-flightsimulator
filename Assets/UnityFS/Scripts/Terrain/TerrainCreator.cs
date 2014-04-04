@@ -9,19 +9,17 @@ public class TerrainCreator : MonoBehaviour {
 	}
 
 	static void create(int size) {
-		float[,] zeroes = new float[size, size];
-		for(int i = 0; i < size; i++) {
-			for(int j = 0; j < size; j++) {
-				zeroes[i, j] = 0f;
-			}
-		}
-		float[,] heights = new float[size - 10, size - 10];
+		float center = size / 2f;
+		float[,] heights = new float[size, size];
 		for(int i = 0; i < size - 10; i++) {
 			for(int j = 0; j < size - 10; j++) {
-				heights[i, j] = Random.Range(0f, 0.01f);
+				float r = Mathf.Sqrt(Mathf.Pow(center - i, 2) + Mathf.Pow(center - j, 2));
+				if (r > 10)
+					heights[i, j] = Mathf.Sqrt(2f/(r-5)) + Random.Range(0f, 0.01f);
+				if (r > 300)
+					heights[i, j] -= (r-300)*0.01f;
 			}
 		}
-		Terrain.activeTerrain.terrainData.SetHeights (0, 0, zeroes);
-		Terrain.activeTerrain.terrainData.SetHeights(5, 5, heights);
+		Terrain.activeTerrain.terrainData.SetHeights(0, 0, heights);
 	}
 }
