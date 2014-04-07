@@ -20,7 +20,7 @@ public class NetworkingScript : Photon.MonoBehaviour {
 	}
 
 	void OnJoinedRoom(){
-		Vector3 spawnPoint = new Vector3(0f, 500f, 0f);
+		Vector3 spawnPoint = new Vector3(0f, 1000f, 0f);
 		GameObject myShip = PhotonNetwork.Instantiate("Ship1", spawnPoint, Quaternion.identity, 0);
 		//myShip.transform.parent = GameObject.Find("Players").transform;
 	}
