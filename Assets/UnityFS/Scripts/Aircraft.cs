@@ -206,12 +206,13 @@ public class Aircraft : MonoBehaviour
 	{
 		return GetEngineRPM(0);
 	}
-	/*
+
 	void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info) {
 		
 		if(stream.isWriting) {
 			stream.SendNext(transform.position);
 			stream.SendNext(transform.rotation);
+			/*
 			stream.SendNext(OverrideInertiaTensor);
 			stream.SendNext(InertiaTensor);
 			stream.SendNext(RollwiseDamping);
@@ -221,11 +222,14 @@ public class Aircraft : MonoBehaviour
 			stream.SendNext(AircraftAttachments);
 			stream.SendNext(AircraftCameras);
 			stream.SendNext(AircraftEngines);
+			*/
 			
 		}
 		else {
+			/*
 			transform.position = (Vector3)stream.ReceiveNext();
 			transform.rotation = (Quaternion)stream.ReceiveNext();
+
 			OverrideInertiaTensor = (bool)stream.ReceiveNext();
 			InertiaTensor = (Vector3)stream.ReceiveNext();
 			RollwiseDamping = (float)stream.ReceiveNext();
@@ -235,10 +239,11 @@ public class Aircraft : MonoBehaviour
 			AircraftAttachments = (AircraftAttachment[])stream.ReceiveNext();
 			AircraftCameras = (AircraftCamera[])stream.ReceiveNext();
 			AircraftEngines = (Engine[])stream.ReceiveNext();
+			*/
 			
 		}
 		
-	} */
+	} 
 	
 }
 
