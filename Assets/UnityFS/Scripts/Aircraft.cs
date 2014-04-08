@@ -10,7 +10,7 @@ using System.Collections.Generic;
 [RequireComponent(typeof(Rigidbody))]
 public class Aircraft : MonoBehaviour 
 {
-	public bool AircraftEnabledAtStart = true;
+	public bool AircraftEnabledAtStart = false;
 	public bool OverrideInertiaTensor = false;
 	public Vector3 InertiaTensor = new Vector3( 0.0f, 0.0f, 0.0f );
 	public float RollwiseDamping = 1.0f;
@@ -82,6 +82,7 @@ public class Aircraft : MonoBehaviour
 	// Update is called once per frame
 	public virtual void Update () 
 	{	
+		EnableControl (isPlayer);
 		AircraftEnabled = isPlayer;
 		if ( AircraftEnabled )
 		{
