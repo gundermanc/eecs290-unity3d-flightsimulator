@@ -10902,6 +10902,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 100000, guid: 39df85023318d694c998d8134e152152, type: 2}
   hasPackage: 0
+  TargetLocation: {fileID: 400404}
+  Package: {fileID: 100000, guid: d1e905e59900a4702949b54076a3ab7b, type: 2}
+  dropDistance: 20
 --- !u!114 &11400066
 MonoBehaviour:
   m_ObjectHideFlags: 1

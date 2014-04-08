@@ -9,6 +9,9 @@ public class WeaponScript : MonoBehaviour {
 
 	public GameObject bulletPrefab;
 	public bool hasPackage;
+	public Transform TargetLocation;
+	public GameObject Package;
+	public float dropDistance;
 
 	// Use this for initialization
 	void Start () {
@@ -43,6 +46,9 @@ public class WeaponScript : MonoBehaviour {
 	public void deployPackage(){
 		if(hasPackage == true){
 			packageToggle();
+			PhotonNetwork.Destroy(TargetLocation.FindChild("Package").gameObject.GetPhotonView());
+			Vector3 dropLocation = new Vector3(TargetLocation.position.x, (TargetLocation.position.y - dropDistance), TargetLocation.position.z);
+			GameObject newPackage = PhotonNetwork.Instantiate("Package",dropLocation, Quaternion.identity, 0);
 			Debug.Log(getPackage());
 		}
 	}
