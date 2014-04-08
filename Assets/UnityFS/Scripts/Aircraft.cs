@@ -27,7 +27,7 @@ public class Aircraft : MonoBehaviour
 	private GUIText AirspeedText = null;
 	private GUIText AltitudeText = null;
 	private GUIText RateOfClimbText = null;
-
+	
 	// Use this for initialization
 	public virtual void Start () 
 	{
@@ -99,12 +99,12 @@ public class Aircraft : MonoBehaviour
 				{
 					AirspeedText.text = "Airspeed:" + ((int)GetAirspeedKnots()).ToString() + "kts";
 				}
-			
+				
 				if ( null !=AltitudeText )
 				{
 					AltitudeText.text = "Altitude:" + ((int)GetAltitude()).ToString() + "ft";
 				}
-		
+				
 				if ( null !=RateOfClimbText )
 				{
 					RateOfClimbText.text = "RateOfClimb:" + ((int)GetRateOfClimbFPM()).ToString() + "fpm";
@@ -199,9 +199,41 @@ public class Aircraft : MonoBehaviour
 		return GetEngineRPM(0);
 	}
 	
+	void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info) {
+		
+		if(stream.isWriting) {
+			stream.SendNext(transform.position);
+			stream.SendNext(transform.rotation);
+			stream.SendNext(OverrideInertiaTensor);
+			stream.SendNext(InertiaTensor);
+			stream.SendNext(RollwiseDamping);
+			stream.SendNext(ChangeCameraController);
+			stream.SendNext(AircraftEnabled);
+			stream.SendNext(CurrentCameraIndex);
+			stream.SendNext(AircraftAttachments);
+			stream.SendNext(AircraftCameras);
+			stream.SendNext(AircraftEngines);
+			
+		}
+		else {
+			transform.position = (Vector3)stream.ReceiveNext();
+			transform.rotation = (Quaternion)stream.ReceiveNext();
+			OverrideInertiaTensor = (bool)stream.ReceiveNext();
+			InertiaTensor = (Vector3)stream.ReceiveNext();
+			RollwiseDamping = (float)stream.ReceiveNext();
+			ChangeCameraController = (InputController)stream.ReceiveNext();
+			AircraftEnabled = (bool)stream.ReceiveNext();
+			CurrentCameraIndex = (int)stream.ReceiveNext();
+			AircraftAttachments = (AircraftAttachment[])stream.ReceiveNext();
+			AircraftCameras = (AircraftCamera[])stream.ReceiveNext();
+			AircraftEngines = (Engine[])stream.ReceiveNext();
+			
+		}
+		
+	}
 	
 }
-	
+
 
 public class Conversions
 {
