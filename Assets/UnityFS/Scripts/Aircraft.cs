@@ -39,11 +39,11 @@ public class Aircraft : MonoBehaviour
 		AircraftEnabled = isPlayer;
 		
 		//Enable control if requested at start.
-		if ( AircraftEnabledAtStart )
-		{
-			AircraftEnabled = true;
-			EnableControl( true );
-		}
+		//if ( AircraftEnabledAtStart )
+		//{
+			//AircraftEnabled = true;
+			//EnableControl( true );
+		//}
 		
 		//Override inertia tensor if so desired.
 		if ( OverrideInertiaTensor )
@@ -74,10 +74,16 @@ public class Aircraft : MonoBehaviour
 		}
 		
 	}
-	
+
+	public virtual void Control(){
+		EnableControl (true);
+	}
+
 	// Update is called once per frame
 	public virtual void Update () 
-	{
+	{	
+		EnableControl (true);
+		AircraftEnabled = isPlayer;
 		if ( AircraftEnabled )
 		{
 			//Listen for input to swap cameras..

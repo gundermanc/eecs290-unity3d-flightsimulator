@@ -23,6 +23,7 @@ public class NetworkingScript : Photon.MonoBehaviour {
 		Vector3 spawnPoint = new Vector3(0f, 1000f, 0f);
 		GameObject myShip = PhotonNetwork.Instantiate("Ship1", spawnPoint, Quaternion.identity, 0);
 		myShip.GetComponent<Aircraft>().isPlayer = true;
+		myShip.GetComponent<Aircraft> ().Control ();
 		//myShip.transform.parent = GameObject.Find("Players").transform;
 	}
 }
