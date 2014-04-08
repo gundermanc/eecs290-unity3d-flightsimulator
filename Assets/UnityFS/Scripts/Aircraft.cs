@@ -82,7 +82,6 @@ public class Aircraft : MonoBehaviour
 	// Update is called once per frame
 	public virtual void Update () 
 	{	
-		EnableControl (true);
 		AircraftEnabled = isPlayer;
 		if ( AircraftEnabled )
 		{
