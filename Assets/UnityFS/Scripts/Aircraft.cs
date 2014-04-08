@@ -14,6 +14,7 @@ public class Aircraft : MonoBehaviour
 	public bool OverrideInertiaTensor = false;
 	public Vector3 InertiaTensor = new Vector3( 0.0f, 0.0f, 0.0f );
 	public float RollwiseDamping = 1.0f;
+	public bool isPlayer = false;
 	
 	[HideInInspector]
 	public InputController ChangeCameraController = new InputController();
@@ -35,6 +36,7 @@ public class Aircraft : MonoBehaviour
 		AircraftAttachments = GetComponentsInChildren<AircraftAttachment>();
 		AircraftCameras = GetComponentsInChildren<AircraftCamera>();
 		AircraftEngines	 = GetComponentsInChildren<Engine>();
+		AircraftEnabled = isPlayer;
 		
 		//Enable control if requested at start.
 		if ( AircraftEnabledAtStart )
@@ -198,7 +200,7 @@ public class Aircraft : MonoBehaviour
 	{
 		return GetEngineRPM(0);
 	}
-	
+	/*
 	void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info) {
 		
 		if(stream.isWriting) {
@@ -230,7 +232,7 @@ public class Aircraft : MonoBehaviour
 			
 		}
 		
-	}
+	} */
 	
 }
 
